@@ -17,8 +17,8 @@ class Student(User):
 
     __mapper_args__ = {"polymorphic_identity": __tablename__}
 
-    def __init__(self, phone_number, email, first_name, middle_name, last_name, registration_id):
-        super().__init__("student", phone_number, email)
+    def __init__(self, user_name, password, phone_number, email, first_name, middle_name, last_name, registration_id):
+        super().__init__(user_name, password, "student", phone_number, email)
         self.first_name = first_name
         self.middle_name = middle_name
         self.last_name = last_name

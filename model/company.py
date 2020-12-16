@@ -11,8 +11,8 @@ class Company(User):
     __mapper_args__ = {"polymorphic_identity": __tablename__}
     company_code = Column(String(50), unique=True)
 
-    def __init__(self, phone_number, email, name, company_code):
-        super().__init__("company", phone_number, email)
+    def __init__(self, user_name, password, phone_number, email, name, company_code):
+        super().__init__(user_name, password, "company", phone_number, email)
         self.name = name
         self.company_code = company_code
 

@@ -22,16 +22,16 @@ address1 = Address("Distelstraat 6", "Schaerbeek", "Brussels", "Brussels", "Belg
 address2 = Address("Hemeryckxlaan 10", "Kontich", "Antwerp", "Antwerp", "Belgium", "2660")
 address3 = Address("Uitbreidingstraat 8", "Berchem", "Antwerp", "Antwerp", "Belgium", "2600")
 
-company = Company("12345", "user@example.com", "UZA", "CPY1")
+company = Company("uza", "password", "+3212345678", "user@example.com", "UZA", "CPY1")
 company.address = address1
 
 program = Program("Masters in Applied Computer Science", "MACS")
 
-student = Student("98765", "student@uni.be", "John", "Oliver", "Gates", "STU1")
+student = Student("john.oliver", "password", "+3245678910", "student@uni.be", "John", "Oliver", "Gates", "STU1")
 student.address = address2
 student.program = program
 
-university = University("667788", "admin@uni.be", "UA", "UNI1")
+university = University("ua_uni1", "password", "+32889966771", "admin@uni.be", "UA", "UNI1")
 university.address = address3
 university.programs.append(program)
 
