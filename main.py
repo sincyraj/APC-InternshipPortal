@@ -7,10 +7,7 @@ from model.program import Program
 from model.student import Student
 from model.university import University
 
-# engine = create_engine('mysql+pymysql://vub:vub1234!@127.0.0.1/vub', pool_recycle=3600)
-# metadata = MetaData(engine)
-# db.session = db.sessionmaker(bind=engine)
-#db.session = db.session()
+from model.university_program import university_program #Dont remove
 
 db.create_all()
 address1 = Address("Distelstraat 6", "Schaerbeek", "Brussels", "Brussels", "Belgium", "1030")
@@ -30,13 +27,13 @@ university = University("ua_uni1", "password", "+32889966771", "admin@uni.be", "
 university.address = address3
 university.programs.append(program)
 
-db.add(address1)
-db.add(address2)
-db.add(company)
-db.add(program)
-db.add(student)
-db.add(university)
-db.commit()
+db.session.add(address1)
+db.session.add(address2)
+db.session.add(company)
+db.session.add(program)
+db.session.add(student)
+db.session.add(university)
+db.session.commit()
 
 db_student = db.session.query(Student).filter(Student.id == 2).one()
 db_university = db.session.query(University).filter(University.id == 3).one()
