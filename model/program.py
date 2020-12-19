@@ -1,14 +1,10 @@
+from base import db
 
-from sqlalchemy import Column, Integer, String
-
-from model.base import Base
-
-
-class Program(Base):
+class Program(db.Model):
     __tablename__ = "program"
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(100))
-    program_code = Column(String(50), unique=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(100))
+    program_code = db.Column(db.String(50), unique=True)
 
     def __init__(self, name, program_code):
         self.name = name

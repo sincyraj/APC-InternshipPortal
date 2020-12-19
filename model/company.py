@@ -1,15 +1,14 @@
-
-from sqlalchemy import Column, String, ForeignKey
+from base import db
 
 from model.user import User
 
 
 class Company(User):
     __tablename__ = "company"
-    id = Column(ForeignKey("user.id"), primary_key=True)
-    name = Column(String(50))
+    id = db.Column(db.ForeignKey("user.id"), primary_key=True)
+    name = db.Column(db.String(50))
     __mapper_args__ = {"polymorphic_identity": __tablename__}
-    company_code = Column(String(50), unique=True)
+    company_code = db.Column(db.String(50), unique=True)
 
     def __init__(self, user_name, password, phone_number, email, name, company_code):
         super().__init__(user_name, password, "company", phone_number, email)

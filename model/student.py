@@ -1,19 +1,18 @@
-from sqlalchemy import Column, String, ForeignKey, Integer
-from sqlalchemy.orm import relationship, backref
+from base import db
 
 from model.user import User
 
 
 class Student(User):
     __tablename__ = "student"
-    id = Column(ForeignKey("user.id"), primary_key=True)
-    first_name = Column(String(30))
-    middle_name = Column(String(30))
-    last_name = Column(String(30))
-    registration_id = Column(String(50), unique=True)
+    id = db.Column(db.ForeignKey("user.id"), primary_key=True)
+    first_name = db.Column(db.String(30))
+    middle_name = db.Column(db.String(30))
+    last_name = db.Column(db.String(30))
+    registration_id = db.Column(db.String(50), unique=True)
 
-    program_id = Column(Integer, ForeignKey('program.id'))
-    program = relationship("Program", backref=backref("student", uselist=False))
+    program_id = db.Column(db.Integer, db.ForeignKey('program.id'))
+    program = db.relationship("Program", backref=db.backref("student", uselist=False))
 
     __mapper_args__ = {"polymorphic_identity": __tablename__}
 

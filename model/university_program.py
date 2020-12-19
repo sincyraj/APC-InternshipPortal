@@ -1,8 +1,6 @@
-from sqlalchemy import Column, ForeignKey, Integer, Table
+from base import db
 
-from model.base import Base
-
-university_program = Table('university_program', Base.metadata,
-    Column('university_id', Integer, ForeignKey('university.id')),
-    Column('program_id', Integer, ForeignKey('program.id'))
+university_program = db.Table('university_program', db.metadata,
+    db.Column('university_id', db.Integer, db.ForeignKey('university.id')),
+    db.Column('program_id', db.Integer, db.ForeignKey('program.id'))
 )

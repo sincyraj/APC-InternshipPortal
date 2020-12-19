@@ -1,17 +1,14 @@
-from sqlalchemy import Column, String, ForeignKey
-from sqlalchemy.orm import relationship
-
-from model import university_program
+from base import db
 from model.user import User
 
 
 class University(User):
     __tablename__ = "university"
-    id = Column(ForeignKey("user.id"), primary_key=True)
-    name = Column(String(150))
-    university_code = Column(String(50), unique=True)
+    id = db.Column(db.ForeignKey("user.id"), primary_key=True)
+    name = db.Column(db.String(150))
+    university_code = db.Column(db.String(50), unique=True)
 
-    programs = relationship("Program", secondary="university_program", backref="universities")
+    programs = db.relationship("Program", secondary="university_program", backref="universities")
 
     __mapper_args__ = {"polymorphic_identity": __tablename__}
 
