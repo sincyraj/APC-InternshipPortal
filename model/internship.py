@@ -1,4 +1,4 @@
-from base import db
+from model.base import db
 
 class Internship(db.Model):
     __tablename__ = "internship"

@@ -1,5 +1,4 @@
-from base import db
-
+from model.base import db
 from model.user import User
 
 

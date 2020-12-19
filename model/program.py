@@ -1,4 +1,4 @@
-from base import db
+from model.base import db
 
 class Program(db.Model):
     __tablename__ = "program"

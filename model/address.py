@@ -1,4 +1,5 @@
-from base import db
+from model.base import db
+
 class Address(db.Model):
     __tablename__ = "address"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

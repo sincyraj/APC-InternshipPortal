@@ -1,6 +1,5 @@
 from passlib.context import CryptContext
-
-from base import db
+from model.base import db
 
 PASSLIB_CONTEXT = CryptContext(
     # in a new application with no previous schemes, start with pbkdf2 SHA512
