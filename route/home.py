@@ -1,9 +1,17 @@
 from flask import Flask, render_template
 
+from model.address import Address
 from model.student import Student
 from model.user import User
-
-app = Flask(__name__)
+from model.base import db
+from model.address import Address
+from model.company import Company
+from model.internship import Internship
+from model.program import Program
+from model.student import Student
+from model.university import University
+from model.university_program import university_program
+from model.base import app
 
 
 @app.route("/")
@@ -12,7 +20,7 @@ def home():
 
 
 @app.route("/students")
-def users():
+def addresses():
     students = Student.query.all()
     return render_template("students.html", students=students)
 
