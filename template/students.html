@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <table style="height: 200px;" width="200">
+    <tbody>
+        {% for user in users %}
+         <tr> {## Here ##}
+                <td>{{ user['first_name'] }}</td>
+         </tr> {## And Here ##}
+        {% endfor %}
+    </tbody>
+</table>
+</head>
+<body>
+
+</body>
+</html>
