@@ -20,13 +20,17 @@ company.address = address1
 
 program = Program("Masters in Applied Computer Science", "MACS")
 
-student1 = Student("jeff.bezos", "password1", "+3245678910", "jeff.bezos@uni.be", "Jeff", "Oliver", "Bezos", "STU1")
+student1 = Student("student1", "password1", "+3245678910", "stus@uni.be", "stu1", "Raj", "Bezos", "STU1")
 student1.address = address2
 student1.program = program
 
-student2 = Student("bill.gates", "password2", "+3244557766", "bill.gates@uni.be", "Bill", "John", "Gates", "STU2")
+student2 = Student("student2", "password2", "+3244557766", "stu2@uni.be", "stu2", "John", "Gates", "STU2")
 student2.address = address4
 student2.program = program
+
+student3 = Student("student3", "password3", "+3244557786", "stu3@uni.be", "stu3", "Ali", "hill", "STU3")
+student3.address = address4
+student3.program = program
 
 university = University("ua_uni1", "password3", "+32889966771", "admin@uni.be", "UA", "UNI1")
 university.address = address3

@@ -24,7 +24,7 @@ def intership():
 
 @app.route("/login")
 def login():
-    return render_template("students.html")
+    return render_template("homepage.html")
 
 @app.route("/students")
 def addresses():

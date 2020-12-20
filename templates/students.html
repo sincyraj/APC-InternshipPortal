@@ -7,13 +7,13 @@
   border-collapse: collapse;
   width: 100%;
 }
-#studentlist td, #customers th {
+#studentlist td, #studentlist th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
 #studentlist tr:nth-child(even){background-color: #f2f2f2;}
-
+#studentlist tr:nth-child(odd){background-color: #a3a375;}
 #studentlist tr:hover {background-color: #ddd;}
 
 #studentlist th {
@@ -33,11 +33,11 @@
         <thead><tr><th>First Name</th><th>Middle Name</th><th>Last Name</th></tr></thead>
     <tbody>
         {% for student in students %}
-         <tr> {## Here ##}
+         <tr>
                 <td>{{ student['first_name'] }}</td>
                 <td>{{ student['middle_name'] }}</td>
                 <td>{{ student['last_name'] }}</td>
-         </tr> {## And Here ##}
+         </tr>
         {% endfor %}
     </tbody>
 </table>
