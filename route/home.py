@@ -1,5 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,url_for,request,session,logging,redirect,flash
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import scoped_session,sessionmaker
 from model.address import Address
 from model.student import Student
 from model.user import User
@@ -14,10 +16,15 @@ from model.university_program import university_program
 from model.base import app
 
 
-@app.route("/")
-def home():
-    return "My flask app"
 
+@app.route("/")
+def intership():
+   return render_template("login.html")
+
+
+@app.route("/login")
+def login():
+    return render_template("students.html")
 
 @app.route("/students")
 def addresses():

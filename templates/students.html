@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+    #studentlist {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#studentlist td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#studentlist tr:nth-child(even){background-color: #f2f2f2;}
+
+#studentlist tr:hover {background-color: #ddd;}
+
+#studentlist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00008B;
+  color: white;
+}
+</style>
+    <head>
+<link rel="stylesheet" href="{{ url_for('static',filename='mystyle.css') }}">
+</head>
     <meta charset="UTF-8">
     <title>Users</title>
-    <table style="height: 200px;" width="200">
+    <table id=studentlist tyle="height: 200px;" width="200">
+        <thead><tr><th>First Name</th><th>Middle Name</th><th>Last Name</th></tr></thead>
     <tbody>
         {% for student in students %}
          <tr> {## Here ##}
