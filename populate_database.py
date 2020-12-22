@@ -48,7 +48,7 @@ db.session.commit()
 db_student = db.session.query(Student).filter(Student.id == 2).one()
 db_university = db.session.query(University).filter(University.id == 4).one()
 db_company = db.session.query(Company).filter(Company.id == 1).one()
-internship = Internship("INT1", db_university.id, db_student.id, db_company.id, "AVAILABLE", datetime.today(),
+internship = Internship("INT1", db_university.id, db_student.id, db_company.id, "My title", "My Descriptin", "AVAILABLE", "7.15", "My comments", datetime.today(),
                         datetime.today())
 
 db.session.add(internship)
