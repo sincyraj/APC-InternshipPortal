@@ -32,10 +32,11 @@
 </head>
 
 <body>
-    <form method="post" action="{{ url_for("post_internship_status") }}">
+    <form method="post" action="{{ url_for("handle_internships") }}">
         <table id=studentlist tyle="height: 200px;" width="200">
             <thead>
                 <tr>
+                    <th>Select</th>
                     <th>Internship ID</th>
                     <th>Internship Code</th>
                     <th>University Name</th>
@@ -48,40 +49,36 @@
                     <th>Comments</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 {% for internship in internships %}
                  <tr>
-                        <td>{{ internship['id'] }}</td>
-                        <td>{{ internship['internship_code'] }}</td>
-                        <td>{{ internship.university.name }}</td>
-                        <td>{{ internship.student.first_name + " " + internship.student.middle_name + " " + internship.student.last_name}}</td>
-                        <td>{{ internship.company.name }}</td>
-                        <td>{{ internship['title'] }}</td>
-                        <td>{{ internship['description'] }}</td>
-                        <td>{{ internship['status'] }}</td>
-                        <td>{{ internship['required_cgpa'] }}</td>
-                        <td>{{ internship['comments'] }}</td>
-                        <td>{{ internship['start_date'] }}</td>
-                        <td>{{ internship['end_date'] }}</td>
-                        <td>
-                            <div>
-                              <input type="radio" id="accept" name="decision" value="accept"
-                                     checked>
-                              <label for="accept">Accept</label>
-                            </div>
-                            <div>
-                              <input type="radio" id="reject" name="decision" value="reject">
-                              <label for="reject">Reject</label>
-                            </div>
-                        </td>
+                    <td><input type="checkbox" name="updateStatus" value="{{ internship.id }}"></td>
+                    <td>{{ internship['id'] }}</td>
+                    <td>{{ internship['internship_code'] }}</td>
+                    <td>{{ internship.university.name }}</td>
+                    <td>{{ internship.student.first_name + " " + internship.student.middle_name + " " + internship.student.last_name}}</td>
+                    <td>{{ internship.company.name }}</td>
+                    <td>{{ internship['title'] }}</td>
+                    <td>{{ internship['description'] }}</td>
+                    <td>{{ internship['status'] }}</td>
+                    <td>{{ internship['required_cgpa'] }}</td>
+                    <td>{{ internship['comments'] }}</td>
+                    <td>{{ internship['start_date'] }}</td>
+                    <td>{{ internship['end_date'] }}</td>
                  </tr>
                 {% endfor %}
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <button type="submit" value="approve" name="decision">Approve</button>
+                        <button type="submit" value="reject" name="decision">Reject</button>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
-        <button type="submit">Submit</button>
     </form>
 
 </body>
