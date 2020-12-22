@@ -38,7 +38,7 @@ def get_internships():
     return render_template("internships.html", internships=internships)
 
 
-@app.route("/internship/change/status", methods=["POST"])
+@app.route("/internships/change/status", methods=["POST"])
 def post_internship_status():
     return "Done"
 

@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <form>
+    <form method="post" action="{{ url_for("post_internship_status") }}">
         <table id=studentlist tyle="height: 200px;" width="200">
             <thead>
                 <tr>
@@ -68,12 +68,12 @@
                         <td>{{ internship['end_date'] }}</td>
                         <td>
                             <div>
-                              <input type="radio" id="accept" name="drone" value="accept"
+                              <input type="radio" id="accept" name="decision" value="accept"
                                      checked>
                               <label for="accept">Accept</label>
                             </div>
                             <div>
-                              <input type="radio" id="reject" name="reject" value="reject">
+                              <input type="radio" id="reject" name="decision" value="reject">
                               <label for="reject">Reject</label>
                             </div>
                         </td>
