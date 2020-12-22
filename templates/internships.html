@@ -29,45 +29,60 @@
 </head>
     <meta charset="UTF-8">
     <title>Internships</title>
-
-
-    <table id=studentlist tyle="height: 200px;" width="200">
-        <thead>
-            <tr>
-                <th>Internship ID</th>
-                <th>Internship Code</th>
-                <th>University Name</th>
-                <th>Student Name</th>
-                <th>Company Name</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Required CGPA</th>
-                <th>Comments</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-            </tr></thead>
-    <tbody>
-        {% for internship in internships %}
-         <tr>
-                <td>{{ internship['id'] }}</td>
-                <td>{{ internship['internship_code'] }}</td>
-                <td>{{ internship.university.name }}</td>
-                <td>{{ internship.student.first_name + " " + internship.student.middle_name + " " + internship.student.last_name}}</td>
-                <td>{{ internship.company.name }}</td>
-                <td>{{ internship['title'] }}</td>
-                <td>{{ internship['description'] }}</td>
-                <td>{{ internship['status'] }}</td>
-                <td>{{ internship['required_cgpa'] }}</td>
-                <td>{{ internship['comments'] }}</td>
-                <td>{{ internship['start_date'] }}</td>
-                <td>{{ internship['end_date'] }}</td>
-         </tr>
-        {% endfor %}
-    </tbody>
-</table>
 </head>
+
 <body>
+    <form>
+        <table id=studentlist tyle="height: 200px;" width="200">
+            <thead>
+                <tr>
+                    <th>Internship ID</th>
+                    <th>Internship Code</th>
+                    <th>University Name</th>
+                    <th>Student Name</th>
+                    <th>Company Name</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Required CGPA</th>
+                    <th>Comments</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for internship in internships %}
+                 <tr>
+                        <td>{{ internship['id'] }}</td>
+                        <td>{{ internship['internship_code'] }}</td>
+                        <td>{{ internship.university.name }}</td>
+                        <td>{{ internship.student.first_name + " " + internship.student.middle_name + " " + internship.student.last_name}}</td>
+                        <td>{{ internship.company.name }}</td>
+                        <td>{{ internship['title'] }}</td>
+                        <td>{{ internship['description'] }}</td>
+                        <td>{{ internship['status'] }}</td>
+                        <td>{{ internship['required_cgpa'] }}</td>
+                        <td>{{ internship['comments'] }}</td>
+                        <td>{{ internship['start_date'] }}</td>
+                        <td>{{ internship['end_date'] }}</td>
+                        <td>
+                            <div>
+                              <input type="radio" id="accept" name="drone" value="accept"
+                                     checked>
+                              <label for="accept">Accept</label>
+                            </div>
+                            <div>
+                              <input type="radio" id="reject" name="reject" value="reject">
+                              <label for="reject">Reject</label>
+                            </div>
+                        </td>
+                 </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
 
 </body>
 </html>
