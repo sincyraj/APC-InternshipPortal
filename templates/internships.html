@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    #studentlist {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#studentlist td, #studentlist th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#studentlist tr:nth-child(even){background-color: #f2f2f2;}
+#studentlist tr:nth-child(odd){background-color: #a3a375;}
+#studentlist tr:hover {background-color: #ddd;}
+
+#studentlist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00008B;
+  color: white;
+}
+</style>
+    <head>
+<link rel="stylesheet" href="{{ url_for('static',filename='mystyle.css') }}">
+</head>
+    <meta charset="UTF-8">
+    <title>Internships</title>
+
+
+    <table id=studentlist tyle="height: 200px;" width="200">
+        <thead>
+            <tr>
+                <th>Internship ID</th>
+                <th>Internship Code</th>
+                <th>University ID</th>
+                <th>Student ID</th>
+                <th>Company ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Required CGPA</th>
+                <th>Comments</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+            </tr></thead>
+    <tbody>
+        {% for internship in internships %}
+         <tr>
+                <td>{{ internship['id'] }}</td>
+                <td>{{ internship['internship_code'] }}</td>
+                <td>{{ internship['university_id'] }}</td>
+                <td>{{ internship['student_id'] }}</td>
+                <td>{{ internship['company_id'] }}</td>
+                <td>{{ internship['title'] }}</td>
+                <td>{{ internship['description'] }}</td>
+                <td>{{ internship['status'] }}</td>
+                <td>{{ internship['required_cgpa'] }}</td>
+                <td>{{ internship['comments'] }}</td>
+                <td>{{ internship['start_date'] }}</td>
+                <td>{{ internship['end_date'] }}</td>
+         </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</head>
+<body>
+
+</body>
+</html>

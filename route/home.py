@@ -26,11 +26,21 @@ def intership():
 def login():
     return render_template("homepage.html")
 
-@app.route("/students")
-def addresses():
+@app.route("/students", methods=["GET"])
+def get_students():
     students = Student.query.all()
     return render_template("students.html", students=students)
 
+
+@app.route("/internships", methods=["GET"])
+def get_internships():
+    internships = Internship.query.all()
+    return render_template("internships.html", internships=internships)
+
+
+@app.route("/internship/change/status", methods=["POST"])
+def post_internship_status():
+    return "Done"
 
 
 if __name__ == "__main__":
