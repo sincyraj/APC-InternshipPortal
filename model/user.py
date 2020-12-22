@@ -1,4 +1,5 @@
 from passlib.context import CryptContext
+
 from model.base import db
 
 PASSLIB_CONTEXT = CryptContext(

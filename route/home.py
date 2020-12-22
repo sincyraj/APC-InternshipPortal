@@ -1,6 +1,6 @@
 from flask import Flask, render_template,url_for,request,session,logging,redirect,flash
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select
 from sqlalchemy.orm import scoped_session,sessionmaker
 from model.address import Address
 from model.student import Student
@@ -14,7 +14,7 @@ from model.student import Student
 from model.university import University
 from model.university_program import university_program
 from model.base import app
-
+from service import internship_service, student_service
 
 
 @app.route("/")
@@ -28,13 +28,13 @@ def login():
 
 @app.route("/students", methods=["GET"])
 def get_students():
-    students = Student.query.all()
+    students = student_service.fetch_all_students()
     return render_template("students.html", students=students)
 
 
 @app.route("/internships", methods=["GET"])
 def get_internships():
-    internships = Internship.query.all()
+    internships = internship_service.fetch_all_internships()
     return render_template("internships.html", internships=internships)
 
 
