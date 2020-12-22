@@ -36,9 +36,9 @@
             <tr>
                 <th>Internship ID</th>
                 <th>Internship Code</th>
-                <th>University ID</th>
-                <th>Student ID</th>
-                <th>Company ID</th>
+                <th>University Name</th>
+                <th>Student Name</th>
+                <th>Company Name</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Status</th>
@@ -52,9 +52,9 @@
          <tr>
                 <td>{{ internship['id'] }}</td>
                 <td>{{ internship['internship_code'] }}</td>
-                <td>{{ internship['university_id'] }}</td>
-                <td>{{ internship['student_id'] }}</td>
-                <td>{{ internship['company_id'] }}</td>
+                <td>{{ internship.university.name }}</td>
+                <td>{{ internship.student.first_name + " " + internship.student.middle_name + " " + internship.student.last_name}}</td>
+                <td>{{ internship.company.name }}</td>
                 <td>{{ internship['title'] }}</td>
                 <td>{{ internship['description'] }}</td>
                 <td>{{ internship['status'] }}</td>
