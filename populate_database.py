@@ -7,7 +7,7 @@ from model.program import Program
 from model.student import Student
 from model.university import University
 
-from model.university_program import university_program #Dont remove
+from model.university_program import university_program  # Dont remove
 
 db.create_all()
 address1 = Address("Distelstraat 6", "Schaerbeek", "Brussels", "Brussels", "Belgium", "1030")
@@ -45,11 +45,18 @@ db.session.add(student2)
 db.session.add(university)
 db.session.commit()
 
-db_student = db.session.query(Student).filter(Student.id == 2).one()
-db_university = db.session.query(University).filter(University.id == 4).one()
-db_company = db.session.query(Company).filter(Company.id == 1).one()
-internship = Internship("INT1", db_university.id, db_student.id, db_company.id, "My title", "My Description", "AVAILABLE", "7.15", "My comments", datetime.today(),
-                        datetime.today())
+db_student1 = db.session.query(Student).filter(Student.id == 2).one()
+db_university1 = db.session.query(University).filter(University.id == 4).one()
+db_company1 = db.session.query(Company).filter(Company.id == 1).one()
+internship1 = Internship("INT1", db_university1.id, db_student1.id, db_company1.id, "My title1", "My Description1",
+                         "AVAILABLE", "7.15", "My comments1", datetime.today(),
+                         datetime.today())
 
-db.session.add(internship)
+db.session.add(internship1)
+
+db_student2 = db.session.query(Student).filter(Student.id == 3).one()
+internship2 = Internship("INT2", db_university1.id, db_student2.id, db_company1.id, "My title2", "My Description2",
+                         "AVAILABLE", "7.15", "My comments2", datetime.today(),
+                         datetime.today())
+db.session.add(internship2)
 db.session.commit()
