@@ -3,12 +3,12 @@ from model.base import db
 class Address(db.Model):
     __tablename__ = "address"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    address_line1 = db.Column(db.String(100))
+    address_line1 = db.Column(db.String(100), nullable=False)
     address_line2 = db.Column(db.String(100))
-    city = db.Column(db.String(50))
-    province = db.Column(db.String(50))
-    country = db.Column(db.String(50))
-    zip_code = db.Column(db.String(50))
+    city = db.Column(db.String(50), nullable=False)
+    province = db.Column(db.String(50), nullable=False)
+    country = db.Column(db.String(50), nullable=False)
+    zip_code = db.Column(db.String(50), nullable=False)
 
     def __init__(self, address_line1, address_line2, city, province, country, zip_code):
         self.address_line1 = address_line1

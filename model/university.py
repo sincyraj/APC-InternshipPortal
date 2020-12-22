@@ -5,8 +5,8 @@ from model.user import User
 class University(User):
     __tablename__ = "university"
     id = db.Column(db.ForeignKey("user.id"), primary_key=True)
-    name = db.Column(db.String(150))
-    university_code = db.Column(db.String(50), unique=True)
+    name = db.Column(db.String(150), nullable=False)
+    university_code = db.Column(db.String(50), unique=True, nullable=False)
 
     programs = db.relationship("Program", secondary="university_program", backref="universities")
 

@@ -6,10 +6,10 @@ from model.user import User
 class Student(User):
     __tablename__ = "student"
     id = db.Column(db.ForeignKey("user.id"), primary_key=True)
-    first_name = db.Column(db.String(30))
-    middle_name = db.Column(db.String(30))
-    last_name = db.Column(db.String(30))
-    registration_id = db.Column(db.String(50), unique=True)
+    first_name = db.Column(db.String(30), nullable=False)
+    middle_name = db.Column(db.String(30), nullable=False)
+    last_name = db.Column(db.String(30), nullable=False)
+    registration_id = db.Column(db.String(50), unique=True, nullable=False)
 
     program_id = db.Column(db.Integer, db.ForeignKey('program.id'))
     program = db.relationship("Program", backref=db.backref("student", uselist=False))

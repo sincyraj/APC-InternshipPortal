@@ -10,12 +10,12 @@ PASSLIB_CONTEXT = CryptContext(
 class User(db.Model):
     __tablename__ = "user"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    category = db.Column(db.String(50))
+    category = db.Column(db.String(50), nullable=False)
     phone_number = db.Column(db.String(50))
-    email = db.Column(db.String(50))
-    address_id = db.Column(db.Integer, db.ForeignKey('address.id'))
+    email = db.Column(db.String(50), unique=True, nullable=False)
+    address_id = db.Column(db.Integer, db.ForeignKey('address.id'), nullable=False)
     address = db.relationship("Address", backref=db.backref("user", uselist=False))
-    user_name = db.Column(db.String(50), unique=True)
+    user_name = db.Column(db.String(50), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
 
     __mapper_args__ = {
