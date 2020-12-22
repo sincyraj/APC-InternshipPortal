@@ -5,7 +5,7 @@ class Internship(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
-    internship_code = db.Column(db.String(50), unique=True)
+    internship_code = db.Column(db.String(50), unique=True, nullable=False)
     university_id = db.Column(db.ForeignKey("university.id"), nullable=False)
     student_id = db.Column(db.ForeignKey("student.id"), nullable=False)
     company_id = db.Column(db.ForeignKey("company.id"), nullable=False)
