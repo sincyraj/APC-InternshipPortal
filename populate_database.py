@@ -20,15 +20,15 @@ company.address = address1
 
 program = Program("Masters in Applied Computer Science", "MACS")
 
-student1 = Student("student1", "password1", "+3245678910", "stus@uni.be", "stu1", "Raj", "Bezos", "STU1")
+student1 = Student("student1", "password1", "+3245678910", "stus@uni.be", "Jeff", "Ronald", "Bezos", "STU1")
 student1.address = address2
 student1.program = program
 
-student2 = Student("student2", "password2", "+3244557766", "stu2@uni.be", "stu2", "John", "Gates", "STU2")
+student2 = Student("student2", "password2", "+3244557766", "stu2@uni.be", "John", "Bill", "Gates", "STU2")
 student2.address = address4
 student2.program = program
 
-student3 = Student("student3", "password3", "+3244557786", "stu3@uni.be", "stu3", "Ali", "hill", "STU3")
+student3 = Student("student3", "password3", "+3244557786", "stu3@uni.be", "Shawn", "James", "Hill", "STU3")
 student3.address = address4
 student3.program = program
 
@@ -48,7 +48,7 @@ db.session.commit()
 db_student = db.session.query(Student).filter(Student.id == 2).one()
 db_university = db.session.query(University).filter(University.id == 4).one()
 db_company = db.session.query(Company).filter(Company.id == 1).one()
-internship = Internship("INT1", db_university.id, db_student.id, db_company.id, "My title", "My Descriptin", "AVAILABLE", "7.15", "My comments", datetime.today(),
+internship = Internship("INT1", db_university.id, db_student.id, db_company.id, "My title", "My Description", "AVAILABLE", "7.15", "My comments", datetime.today(),
                         datetime.today())
 
 db.session.add(internship)

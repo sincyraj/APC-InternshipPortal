@@ -6,9 +6,16 @@ class Internship(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
     internship_code = db.Column(db.String(50), unique=True, nullable=False)
+
     university_id = db.Column(db.ForeignKey("university.id"), nullable=False)
+    university = db.relationship("University", backref=db.backref("internship", uselist=False))
+
     student_id = db.Column(db.ForeignKey("student.id"), nullable=False)
+    student = db.relationship("Student", backref=db.backref("internship", uselist=False))
+
     company_id = db.Column(db.ForeignKey("company.id"), nullable=False)
+    company = db.relationship("Company", backref=db.backref("internship", uselist=False))
+
     title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(350), nullable=False)
     status = db.Column(db.String(30), nullable=False)
