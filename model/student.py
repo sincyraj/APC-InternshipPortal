@@ -23,12 +23,3 @@ class Student(User):
         self.last_name = last_name
         self.registration_id = registration_id
 
-    def __repr__(self):
-        return (
-            "Name %s %s %s, "
-            % (
-                self.first_name,
-                self.middle_name,
-                self.last_name
-            )
-        )

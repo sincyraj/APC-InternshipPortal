@@ -19,10 +19,10 @@ class User(db.Model):
     user_name = db.Column(db.String(50), unique=True, nullable=False)
     password_hash = db.Column(db.String(256), nullable=False)
 
-    __mapper_args__ = {
-        "polymorphic_identity": "user",
-        "polymorphic_on": category,
-    }
+    #__mapper_args__ = {
+    #    "polymorphic_identity": "user",
+    #    "polymorphic_on": category,
+    #}
 
     def __init__(self, user_name, password, category, phone_number, email):
         self.user_name = user_name
@@ -34,3 +34,4 @@ class User(db.Model):
     @staticmethod
     def generate_hash(password):
         return PASSLIB_CONTEXT.hash(password.encode("utf8"))
+
