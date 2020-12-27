@@ -4,7 +4,7 @@ class Internship(db.Model):
     __tablename__ = "internship"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     internship_id = db.Column(db.ForeignKey("open_internship.id"), nullable=False)
-    internship = db.relationship("OpenInternship", backref=db.backref(__tablename__, uselist=False))
+    internship_details = db.relationship("OpenInternship", backref=db.backref(__tablename__, uselist=False))
 
     university_id = db.Column(db.ForeignKey("university.id"), nullable=False)
     university = db.relationship("University", backref=db.backref(__tablename__, uselist=False))

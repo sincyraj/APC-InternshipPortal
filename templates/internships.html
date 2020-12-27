@@ -55,18 +55,18 @@
                 {% for internship in internships %}
                  <tr>
                     <td><input type="checkbox" name="updateStatus" value="{{ internship.id }}"></td>
-                    <td>{{ internship['id'] }}</td>
-                    <td>{{ internship['internship_code'] }}</td>
+                    <td>{{ internship.id }}</td>
+                    <td>{{ internship.internship_details.internship_code }}</td>
                     <td>{{ internship.university.name }}</td>
                     <td>{{ internship.student.first_name + " " + internship.student.middle_name + " " + internship.student.last_name}}</td>
-                    <td>{{ internship.company.name }}</td>
-                    <td>{{ internship['title'] }}</td>
-                    <td>{{ internship['description'] }}</td>
-                    <td>{{ internship['status'] }}</td>
-                    <td>{{ internship['required_cgpa'] }}</td>
-                    <td>{{ internship['comments'] }}</td>
-                    <td>{{ internship['start_date'] }}</td>
-                    <td>{{ internship['end_date'] }}</td>
+                    <td>{{ internship.internship_details.company.name }}</td>
+                    <td>{{ internship.internship_details.title }}</td>
+                    <td>{{ internship.internship_details.description }}</td>
+                    <td>{{ internship.status }}</td>
+                    <td>{{ internship.internship_details.required_cgpa }}</td>
+                    <td>{{ internship.internship_details.comments }}</td>
+                    <td>{{ internship.internship_details.start_date }}</td>
+                    <td>{{ internship.internship_details.end_date }}</td>
                  </tr>
                 {% endfor %}
             </tbody>
