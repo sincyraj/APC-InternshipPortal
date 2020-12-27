@@ -3,8 +3,6 @@ from model.base import db
 class Internship(db.Model):
     __tablename__ = "internship"
     internship_id = db.Column(db.ForeignKey("internship.id"), nullable=False)
-    internship_code = db.Column(db.String(50), unique=True, nullable=False)
-
     university_id = db.Column(db.ForeignKey("university.id"), nullable=False)
     university = db.relationship("University", backref=db.backref(__tablename__, uselist=False))
 

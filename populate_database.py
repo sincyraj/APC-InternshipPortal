@@ -2,6 +2,7 @@ from datetime import datetime
 from model.base import db
 from model.address import Address
 from model.company import Company
+from model.internship import Internship
 from model.open_internship import OpenInternship
 from model.program import Program
 from model.student import Student
@@ -48,15 +49,15 @@ db.session.commit()
 db_student1 = db.session.query(Student).filter(Student.id == 2).one()
 db_university1 = db.session.query(University).filter(University.id == 4).one()
 db_company1 = db.session.query(Company).filter(Company.id == 1).one()
-internship1 = OpenInternship("INT1", db_university1.id, db_student1.id, db_company1.id, "My title1", "My Description1",
-                         "AVAILABLE", "7.15", "My comments1", datetime.today(),
-                             datetime.today())
+open_internship1 = OpenInternship("INT1", db_university1.id, db_student1.id, db_company1.id, "My title1", "My Description1", "AVAILABLE", "7.15")
 
-db.session.add(internship1)
+db.session.add(open_internship1)
 
 db_student2 = db.session.query(Student).filter(Student.id == 3).one()
-internship2 = OpenInternship("INT2", db_university1.id, db_student2.id, db_company1.id, "My title2", "My Description2",
-                         "AVAILABLE", "7.15", "My comments2", datetime.today(),
-                             datetime.today())
-db.session.add(internship2)
+open_internship2 = OpenInternship("INT2", db_university1.id, db_student2.id, db_company1.id, "My title2", "My Description2", "AVAILABLE", "7.15")
+# internship2 = OpenInternship("INT2", db_university1.id, db_student2.id, db_company1.id, "My title2", "My Description2",
+#                          "AVAILABLE", "7.15", "My comments2", datetime.today(),
+#                              datetime.today())
+db.session.add(open_internship2)
 db.session.commit()
+internship1 = Internship()
