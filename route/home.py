@@ -10,7 +10,7 @@ from model.user import User
 from model.base import db
 from model.address import Address
 from model.company import Company
-from model.internship import Internship
+from model.open_internship import OpenInternship
 from model.program import Program
 from model.student import Student
 from model.university import University

@@ -10,7 +10,7 @@ from model.user import User
 from model.base import db
 from model.address import Address
 from model.company import Company
-from model.internship import Internship
+from model.open_internship import OpenInternship
 from model.program import Program
 from model.student import Student
 from model.university import University
@@ -109,7 +109,7 @@ def register():
 @app.route("/students", methods=['GET', 'POST'])
 def get_students():
     student_id = 2 ##get from session
-    internship_list = db.session.query(Internship).filter(Internship.student_id == student_id).all()
+    internship_list = db.session.query(OpenInternship).filter(OpenInternship.student_id == student_id).all()
     print(internship_list)
     return render_template("students.html")
 
