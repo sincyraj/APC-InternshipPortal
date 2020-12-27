@@ -58,11 +58,12 @@ open_internship2 = OpenInternship("INT2", db_company1.id, "My title2", "My Descr
 db.session.add(open_internship2)
 db.session.commit()
 
-db_open_internship1 = db.session.query(OpenInternship).filter(OpenInternship.internship_code == "INT1")
-db_open_internship2 = db.session.query(OpenInternship).filter(OpenInternship.internship_code == "INT2")
+db_open_internship1 = db.session.query(OpenInternship).filter(OpenInternship.internship_code == "INT1").one()
+db_open_internship2 = db.session.query(OpenInternship).filter(OpenInternship.internship_code == "INT2").one()
 internship1 = Internship(db_open_internship1.id, db_university1.id, db_student1.id, "AVAILABLE")
 internship2 = Internship(db_open_internship2.id, db_university1.id, db_student2.id, "AVAILABLE")
-db.session(internship1)
-db.session(internship2)
+
+db.session.add(internship1)
+db.session.add(internship2)
 
 db.session.commit()
