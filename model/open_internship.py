@@ -4,12 +4,9 @@ class OpenInternship(db.Model):
     __tablename__ = "open_internship"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-
     internship_code = db.Column(db.String(50), unique=True, nullable=False)
-
     company_id = db.Column(db.ForeignKey("company.id"), nullable=False)
-    company = db.relationship("Company", backref=db.backref("open_internship", uselist=False))
-
+    company = db.relationship("Company", backref=db.backref(__tablename__, uselist=False))
     title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.String(350), nullable=False)
     required_cgpa = db.Column(db.String(30), nullable=False)

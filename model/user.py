@@ -20,7 +20,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(256), nullable=False)
 
     __mapper_args__ = {
-       "polymorphic_identity": "user",
+       "polymorphic_identity": __tablename__,
        "polymorphic_on": category,
     }
 

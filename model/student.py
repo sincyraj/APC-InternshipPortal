@@ -12,7 +12,7 @@ class Student(User):
     registration_id = db.Column(db.String(50), unique=True, nullable=False)
 
     program_id = db.Column(db.Integer, db.ForeignKey('program.id'), nullable=False)
-    program = db.relationship("Program", backref=db.backref("student", uselist=False))
+    program = db.relationship("Program", backref=db.backref(__tablename__, uselist=False))
 
     __mapper_args__ = {"polymorphic_identity": __tablename__}
 

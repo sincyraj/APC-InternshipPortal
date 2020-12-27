@@ -49,15 +49,20 @@ db.session.commit()
 db_student1 = db.session.query(Student).filter(Student.id == 2).one()
 db_university1 = db.session.query(University).filter(University.id == 4).one()
 db_company1 = db.session.query(Company).filter(Company.id == 1).one()
-open_internship1 = OpenInternship("INT1", db_university1.id, db_student1.id, db_company1.id, "My title1", "My Description1", "AVAILABLE", "7.15")
 
+open_internship1 = OpenInternship("INT1", db_company1.id, "My title1", "My Description1", "6.15", "My comments1", datetime.today(), datetime.today())
 db.session.add(open_internship1)
 
 db_student2 = db.session.query(Student).filter(Student.id == 3).one()
-open_internship2 = OpenInternship("INT2", db_university1.id, db_student2.id, db_company1.id, "My title2", "My Description2", "AVAILABLE", "7.15")
-# internship2 = OpenInternship("INT2", db_university1.id, db_student2.id, db_company1.id, "My title2", "My Description2",
-#                          "AVAILABLE", "7.15", "My comments2", datetime.today(),
-#                              datetime.today())
+open_internship2 = OpenInternship("INT2", db_company1.id, "My title2", "My Description2", "7.15", "My comments2", datetime.today(), datetime.today())
 db.session.add(open_internship2)
 db.session.commit()
-internship1 = Internship()
+
+db_open_internship1 = db.session.query(OpenInternship).filter(OpenInternship.id == 1)
+db_open_internship2 = db.session.query(OpenInternship).filter(OpenInternship.id == 2)
+internship1 = Internship(db_open_internship1.id, db_university1.id, db_student1.id, "AVAILABLE")
+internship2 = Internship(db_open_internship2.id, db_university1.id, db_student2.id, "AVAILABLE")
+db.session(internship1)
+db.session(internship2)
+
+db.session.commit()
