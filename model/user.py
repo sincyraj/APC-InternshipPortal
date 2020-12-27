@@ -1,12 +1,7 @@
-from passlib.context import CryptContext
+from passlib.hash import pbkdf2_sha256
 
 from model.base import db
 
-PASSLIB_CONTEXT = CryptContext(
-    # in a new application with no previous schemes, start with pbkdf2 SHA512
-    schemes=["pbkdf2_sha512"],
-    deprecated="auto",
-)
 
 class User(db.Model):
     __tablename__ = "user"
@@ -33,5 +28,8 @@ class User(db.Model):
 
     @staticmethod
     def generate_hash(password):
-        return PASSLIB_CONTEXT.hash(password.encode("utf8"))
+        return pbkdf2_sha256.hash(password.encode("utf8"))
 
+    @staticmethod
+    def verify_hash(password, hashed_password):
+        return pbkdf2_sha256.verify(password.encode("utf8"), hashed_password)
