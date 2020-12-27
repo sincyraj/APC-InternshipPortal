@@ -22,5 +22,5 @@ def update_internships(action, ids):
             status = "Approved"
         elif action == "reject":
             status = "Rejected"
-        db.session.execute(update(OpenInternship).where(OpenInternship.id == id).values(status=status))
+        db.session.execute(update(Internship).where(Internship.id == id).values(status=status))
         db.session.commit()
