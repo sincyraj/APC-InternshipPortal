@@ -196,9 +196,10 @@ def handle_internships():
     print(internships)
     values = []
     for intern in internships:
-        internship_obj = db.session.query(OpenInternship).filter(OpenInternship.id == intern.internship_id).one()
-        student_obj = db.session.query(Student).filter(Student.id==intern.student_id).one()
-        values.append({'internship_id':intern.id,'first_name': student_obj.first_name,'last_name':student_obj.last_name,'student_cgpa':'3.5','title': internship_obj.title,'description':internship_obj.description,'required_gpa':internship_obj.required_cgpa})
+        if (intern.status.lower()=='applied'):
+            internship_obj = db.session.query(OpenInternship).filter(OpenInternship.id == intern.internship_id).one()
+            student_obj = db.session.query(Student).filter(Student.id==intern.student_id).one()
+            values.append({'internship_id':intern.id,'first_name': student_obj.first_name,'last_name':student_obj.last_name,'student_cgpa':'3.5','title': internship_obj.title,'description':internship_obj.description,'required_gpa':internship_obj.required_cgpa})
     return {'data':values}
 
 
